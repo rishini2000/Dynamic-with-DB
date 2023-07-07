@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script>
+    window.addEventListener('load',f1);
+
+    let div1;
+    let div2;
+
+    function f1(){
+        div1 = document.getElementById("sem1");
+        div2 = document.getElementById("sem2");
+        div1.style.display = "none";
+        div2.style.display = "none";
+    }
+
+    function showSem1(){
+        div1.style.display = "block";
+        div2.style.display = "none";
+    }
+
+    function showSem2(){
+        div1.style.display = "none";
+        div2.style.display = "block";
+    }
+
+</script>
+<body>
+    <h1>Welcome to Earth University College</h1>
+    <hr>
+    <div>
+        <button id="btn1" onclick="showSem1()">Semester-1</button>
+        <button id="btn2" onclick="showSem2()">Semester-2</button>
+        <button id="btn3">Semester-3</button>
+        <button id="btn4">Semester-4</button>
+        <button id="btn5">Semester-5</button>
+        <button id="btn6">Semester-6</button>
+    </div>
+    <hr>
+    <div id="sem1">
+        <ol>
+            <li>Introduction to Programming</li>
+            <li>Computer System</li>
+            <li>Information System</li>
+            <li>Introductory Mathematics</li>
+            <li>Personal Computing</li>
+        </ol>
+    </div>
+
+    <div id="sem2">
+        <ol>
+            <li>Communication Skills</li>
+            <li>Mathematics for Computing</li>
+            <li>Software Engineering</li>
+            <li>Database Systems</li>
+            <li>Web Application Development</li>
+        </ol>
+    </div>
+</body>
+</html>

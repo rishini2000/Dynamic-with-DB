@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Full-Time</title>
+</head>
+<script>
+
+  window.addEventListener('load',initialize);
+
+  let div1;
+  let list1;
+
+  let div2;
+  let list2;
+
+  let qry;
+
+  let baseurl;
+  let courses;
+
+  baseurl = "http://localhost/FullTime/Dynamic%20with%20DB2/";
+  // courses = get(baseurl + "courseDao.php");
+
+  function initialize(){
+    div1 = document.getElementById("sem1");
+    list1 = document.getElementById("sem1_list");
+
+    // div2 = document.getElementById("sem2");
+    // list2 = document.getElementById("sem2_list");
+
+    div1.style.display = "none";
+    // div2.style.display = "none";
+
+    btn1.addEventListener('click',showSem1);
+    btn2.addEventListener('click',showSem2);
+  }
+
+  function showSem1(){
+
+    qry = "semester=" + "semester1";
+    courses = get(baseurl + "courseDao.php?" + qry);
+
+    for (const name in courses) {
+        const li = document.createElement('li');
+        li.textContent = courses[name];
+        list1.appendChild(li);
+    }
+    div1.style.display="block";
+    
+  }
+  function showSem2(){
+
+    qry = "semester=" + "semester2";
+    courses = get(baseurl + "courseDao.php?" + qry);
+
+    for (const name in courses) {
+        const li = document.createElement('li');
+        li.textContent = courses[name];
+        list1.appendChild(li);
+    }
+    div1.style.display="block";
+    // div1.style.display="none";
+  }
+
+  function get(url) {
+
+    const ajax = new XMLHttpRequest();
+    ajax.open("GET", url, false);
+    ajax.send();
+    const objects = JSON.parse(ajax.responseText);
+    return objects;
+
+  }
+</script>
+
+<body>
+<div>
+  <h1>Welcome to Earth University College</h1>
+  <hr>
+
+  <div>
+    <button id="btn1">Semester - 1</button>
+    <button id="btn2">Semester - 2</button>
+    <button id="btn3">Semester - 3</button>
+    <button id="btn4">Semester - 4</button>
+    <button id="btn5">Semester - 5</button>
+    <button id="btn6">Semester - 6</button>
+  </div>
+  <hr>
+  <div id="sem1">
+    <ol id="sem1_list"></ol>
+  </div>
+  <hr>
+</div>
+</body>
+</html>
